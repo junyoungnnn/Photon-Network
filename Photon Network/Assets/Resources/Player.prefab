@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 8029398228320650545}
   - component: {fileID: 3373641383400689507}
   - component: {fileID: 6876591382987015228}
+  - component: {fileID: 2633794478694570311}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -285,6 +286,23 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2633794478694570311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495154176390201453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a5cfaa09c21cc40b85056ccff7ae36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  mouseX: 0
+  rotateSpeed: 100
+  direction: {x: 0, y: 0, z: 0}
+  temporaryCamera: {fileID: 3250207728065315647}
 --- !u!1 &6782084369994418630
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +418,7 @@ GameObject:
   - component: {fileID: 8492331409550517231}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
