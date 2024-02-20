@@ -29,10 +29,12 @@ public class PhotonPlayer : MonoBehaviourPun
 
     void Update()
     {
+        /*
         if (PhotonNetwork.IsMasterClient == true)
         {
             Debug.Log("Master Client");
         }
+        */
 
         if (photonView.IsMine == false) return;
 

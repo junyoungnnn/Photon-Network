@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField nickNameInputField;
     [SerializeField] GameObject nickNamePanel;
+
     private void Awake()
     {
         CreatePlayer();
@@ -67,6 +68,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.NickName = nickName;
 
+        Debug.Log(nickName);
+
         if(string.IsNullOrEmpty(nickName))
         {
             nickNamePanel.SetActive(true);
@@ -74,7 +77,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         else
         {
             nickNamePanel.SetActive(false);
-
         }
     }
 }

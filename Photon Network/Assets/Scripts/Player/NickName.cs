@@ -21,6 +21,7 @@ public class NickName : MonoBehaviourPun
 
     void Update()
     {
+        // 카메라 방향으로 닉네임이 바라봄
         transform.forward = playerCamera.transform.forward;
     }
 }
