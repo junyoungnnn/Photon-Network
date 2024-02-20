@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        CreatePlayer();
         CheckNickName();
+        CreatePlayer();
+        
     }
 
     private void CreatePlayer()
