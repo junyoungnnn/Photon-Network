@@ -9,11 +9,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float scrollSpeed = 100.0f;
     [SerializeField] float sensitivity = 20f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         RotateCamera();
