@@ -6,8 +6,8 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] float cameraRotationLimit = 37.5f;
     [SerializeField] float currentRotationX;
-    [SerializeField] float scrollSpeed = 100.0f;
-    [SerializeField] float sensitivity = 20f;
+    [SerializeField] float scrollSpeed = 50.0f;
+    [SerializeField] float sensitivity = 400f;
 
     void Update()
     {
@@ -20,7 +20,7 @@ public class CameraManager : MonoBehaviour
 
         float cameraRotationX = xRotation * sensitivity;
 
-        currentRotationX -= cameraRotationX;
+        currentRotationX -= cameraRotationX * Time.deltaTime;
 
         currentRotationX = Mathf.Clamp(currentRotationX, -cameraRotationLimit, cameraRotationLimit);
 

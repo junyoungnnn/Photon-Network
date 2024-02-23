@@ -10,6 +10,8 @@ public enum MOUSETYPE
 
 public class MouseManager : MonoBehaviour
 {
+    private bool mouseLock = false;
+
     void Start()
     {
         SetMouse(MOUSETYPE.LOCK);
@@ -17,9 +19,18 @@ public class MouseManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SetMouse(MOUSETYPE.FREE);
+            if (mouseLock)
+            {
+                SetMouse(MOUSETYPE.FREE);
+                mouseLock = true;
+            }
+            else
+            {
+                SetMouse(MOUSETYPE.LOCK);
+                mouseLock = false;
+            }
         }
     }
 
