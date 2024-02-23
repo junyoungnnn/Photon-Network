@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public Transform roomParentTrasform;
     public TMP_InputField roomNameInputField;
     public TMP_InputField roomPersonnelInputField;
+    [SerializeField] TMP_InputField nickNameInputField;
 
     // 룸 목록을 저장히기 위한 자료구조
     Dictionary<string, RoomInfo> roomDictionary = new Dictionary<string, RoomInfo>();
@@ -111,7 +112,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
 
         }
+    }
 
-        
+    public void ChangeNickName()
+    {
+        PlayerPrefs.SetString("Nick Name", "");
     }
 }

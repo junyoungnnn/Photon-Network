@@ -315,9 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a5cfaa09c21cc40b85056ccff7ae36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   speed: 10
   mouseX: 0
-  rotateSpeed: 500
+  rotateSpeed: 1000
   direction: {x: 0, y: 0, z: 0}
   temporaryCamera: {fileID: 3250207728065315647}
 --- !u!114 &-9061586362097122926

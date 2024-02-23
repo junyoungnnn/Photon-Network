@@ -21,7 +21,7 @@ public class MouseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (mouseLock)
+            if (!mouseLock)
             {
                 SetMouse(MOUSETYPE.FREE);
                 mouseLock = true;
