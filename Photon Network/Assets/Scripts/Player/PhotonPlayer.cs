@@ -6,7 +6,7 @@ using Photon.Pun;
 
 public class PhotonPlayer : MonoBehaviourPun, IPunObservable
 {
-    [SerializeField] int score;
+    [SerializeField] float score;
     [SerializeField] float speed;
     [SerializeField] float mouseX;
     [SerializeField] float rotateSpeed;
@@ -65,7 +65,7 @@ public class PhotonPlayer : MonoBehaviourPun, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         // 로컬 오브젝트라면 쓰기 부분을 실행합니다.
-        if(stream.IsWriting)
+        if (stream.IsWriting)
         {
             // 네트워크를 통해 데이터를 보냅니다.
             stream.SendNext(score);
@@ -73,7 +73,15 @@ public class PhotonPlayer : MonoBehaviourPun, IPunObservable
         else // 원격 오브젝트라면 읽기 부분을 실행합니다.
         {
             // 네트워크를 통해서 데이터를 받습니다.
-            score = (int)stream.ReceiveNext();
+
+            try
+            {
+                score = (float)stream.ReceiveNext();
+            }
+            catch 
+            {
+                
+            }
         }
     }
 }
