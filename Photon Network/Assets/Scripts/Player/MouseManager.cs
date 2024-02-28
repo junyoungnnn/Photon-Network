@@ -24,6 +24,7 @@ public class MouseManager : MonoBehaviour
             if (!mouseLock)
             {
                 SetMouse(MOUSETYPE.FREE);
+                Alarm.Show(AlarmType.PausePanel);
                 mouseLock = true;
             }
             else

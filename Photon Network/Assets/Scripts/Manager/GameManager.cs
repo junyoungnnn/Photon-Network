@@ -39,15 +39,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         return direction;
     }
 
-    public void ExitGame()
-    {
-        PhotonNetwork.LeaveRoom();
-    }
-
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("Photon Lobby");
-    }
 
     // 방장이 나갔을 때 권한을 넘겨주는 함수
     public override void OnMasterClientSwitched(Player newMasterClient)
