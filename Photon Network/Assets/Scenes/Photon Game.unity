@@ -2784,7 +2784,6 @@ RectTransform:
   m_Children:
   - {fileID: 327233567}
   - {fileID: 115824079}
-  - {fileID: 760179900}
   - {fileID: 1355230115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4713,11 +4712,11 @@ RectTransform:
   m_Children:
   - {fileID: 1736996808}
   - {fileID: 1624752369}
-  m_Father: {fileID: 420275453}
+  m_Father: {fileID: 1355230115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -955, y: -1165}
   m_SizeDelta: {x: 600, y: 75}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &760179901
@@ -7083,10 +7082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcd00e17c482464faae1651e687f2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 10
+  playerCount: 3
   timerText: {fileID: 337215154}
   nickNameInputField: {fileID: 99435958}
   nickNamePanel: {fileID: 327233566}
-  timer: 10
 --- !u!1001 &1212532116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8131,6 +8131,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 337215153}
+  - {fileID: 760179900}
   m_Father: {fileID: 420275453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}

@@ -20,13 +20,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        CheckPlayer();
+       // CheckPlayer();
     }
 
     private void Awake()
     {
         CheckNickName();
         CreatePlayer();
+
+        StartCoroutine(StartTimer());
     }
 
     private void CreatePlayer()
@@ -84,7 +86,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             nickNamePanel.SetActive(false);
         }
     }
-
+    /*
+    //플레이어가 모두 입장하였을때 타이머를 시작함
     public void CheckPlayer()
     {
         Debug.Log(PhotonNetwork.PlayerList.Length);
@@ -100,10 +103,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         StartCoroutine(StartTimer());
     }
-
+    */
     IEnumerator StartTimer()
     {
-        while (timer > 0)
+        while (true)
         {
             timer -= Time.deltaTime;
             minute = (int)timer / 60;
