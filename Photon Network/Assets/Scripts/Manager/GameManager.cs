@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void CreateNickName()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            nickNameInputField.ActivateInputField();
+            return;
+        }
         PlayerPrefs.SetString("Nick Name", nickNameInputField.text);
         PhotonNetwork.NickName = nickNameInputField.text;
 
