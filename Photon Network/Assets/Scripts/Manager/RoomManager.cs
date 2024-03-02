@@ -13,9 +13,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_InputField roomNameInputField;
     public TMP_InputField roomPersonnelInputField;
     [SerializeField] TMP_InputField nickNameInputField;
+    [SerializeField] GameObject nickNamePanel;
+
 
     // 룸 목록을 저장히기 위한 자료구조
     Dictionary<string, RoomInfo> roomDictionary = new Dictionary<string, RoomInfo>();
+
+    private void Awake()
+    {
+        CheckNickName();
+    }
 
     void Update()
     {
@@ -28,6 +35,38 @@ public class RoomManager : MonoBehaviourPunCallbacks
             roomCreateButton.interactable= false;
         }
     }
+
+    public void CreateNickName()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            nickNameInputField.ActivateInputField();
+            return;
+        }
+        PlayerPrefs.SetString("Nick Name", nickNameInputField.text);
+        PhotonNetwork.NickName = nickNameInputField.text;
+
+        nickNamePanel.SetActive(false);
+    }
+
+    public void CheckNickName()
+    {
+        string nickName = PlayerPrefs.GetString("Nick Name");
+
+        PhotonNetwork.NickName = nickName;
+
+        Debug.Log(nickName);
+
+        if (string.IsNullOrEmpty(nickName))
+        {
+            nickNamePanel.SetActive(true);
+        }
+        else
+        {
+            nickNamePanel.SetActive(false);
+        }
+    }
+
 
     public override void OnJoinedRoom()
     {

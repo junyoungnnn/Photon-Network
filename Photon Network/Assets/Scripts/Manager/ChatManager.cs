@@ -13,7 +13,7 @@ public class ChatManager : MonoBehaviourPunCallbacks
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            if(inputField.text.Length == 0 && PhotonNetwork.NickName != null)
+            if(inputField.text.Length == 0)
             {
                 inputField.ActivateInputField();
                 return;

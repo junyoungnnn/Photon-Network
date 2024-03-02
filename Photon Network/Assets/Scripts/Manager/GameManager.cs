@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] float timer;
     [SerializeField] int playerCount = 3;
     [SerializeField] Text timerText;
-    [SerializeField] TMP_InputField nickNameInputField;
-    [SerializeField] GameObject nickNamePanel;
 
     private void Start()
     {
@@ -25,7 +23,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        CheckNickName();
         CreatePlayer();
 
         StartCoroutine(StartTimer());
@@ -61,36 +58,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.SetMasterClient(PhotonNetwork.PlayerList[0]);
     }
 
-    public void CreateNickName()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            nickNameInputField.ActivateInputField();
-            return;
-        }
-        PlayerPrefs.SetString("Nick Name", nickNameInputField.text);
-        PhotonNetwork.NickName = nickNameInputField.text;
 
-        nickNamePanel.SetActive(false);
-    }
-
-    public void CheckNickName()
-    {
-        string nickName = PlayerPrefs.GetString("Nick Name");
-
-        PhotonNetwork.NickName = nickName;
-
-        Debug.Log(nickName);
-
-        if(string.IsNullOrEmpty(nickName))
-        {
-            nickNamePanel.SetActive(true);
-        }
-        else
-        {
-            nickNamePanel.SetActive(false);
-        }
-    }
     /*
     //플레이어가 모두 입장하였을때 타이머를 시작함
     public void CheckPlayer()
