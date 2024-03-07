@@ -11,6 +11,7 @@ public enum MOUSETYPE
 public class MouseManager : MonoBehaviour
 {
     private bool mouseLock = false;
+    public static bool onPausePanel = false;
 
     void Start()
     {
@@ -19,12 +20,13 @@ public class MouseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && onPausePanel == false)
         {
             if (!mouseLock)
             {
                 SetMouse(MOUSETYPE.FREE);
                 Alarm.Show(AlarmType.PausePanel);
+                onPausePanel = true;
                 mouseLock = true;
             }
             else

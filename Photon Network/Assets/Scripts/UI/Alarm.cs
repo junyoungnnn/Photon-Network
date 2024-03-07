@@ -39,13 +39,14 @@ public class Alarm : MonoBehaviourPunCallbacks
     public void Exit()
     {
         PhotonNetwork.LeaveRoom();
+        MouseManager.onPausePanel = false;
     }
 
     public void Continue()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
+        MouseManager.onPausePanel = false;
         Destroy(gameObject);
     }
 
@@ -53,6 +54,4 @@ public class Alarm : MonoBehaviourPunCallbacks
     {
         Destroy(gameObject);
     }
-
-  
 }

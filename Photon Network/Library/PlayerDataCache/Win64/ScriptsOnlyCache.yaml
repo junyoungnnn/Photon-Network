@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - ExitGames.Demos.DemoPunVoice.Highlighter
     - ExitGames.Demos.DemoPunVoice.OrthographicController
     - ExitGames.Demos.DemoPunVoice.ThirdPersonController
+    - HPBar
     - Information
     - Metalon
     - MouseManager
@@ -22,6 +23,7 @@ ScriptsOnlyBuild:
     - ChatManager
     - ConnectServer
     - GameManager
+    - HPBar
     - Metalon
     - MouseManager
     - NickName
@@ -46,6 +48,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.Utilities:
     - Photon.Pun.UtilityScripts.MoveByKeys
     PhotonUnityNetworking.dll:
@@ -96,13 +100,18 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.ContentSizeFitterEditor
+    - UnityEditor.UI.TextEditor
     UnityEngine.UI:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -126,6 +135,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
@@ -203,11 +213,11 @@ ScriptsOnlyBuild:
     fullTypeName: Alarm
     methodName: Continue
   - assembly: Assembly-CSharp
-    fullTypeName: Information
-    methodName: ConnectRoom
-  - assembly: Assembly-CSharp
     fullTypeName: Alarm
     methodName: Close
+  - assembly: Assembly-CSharp
+    fullTypeName: Information
+    methodName: ConnectRoom
   - assembly: Assembly-CSharp
     fullTypeName: ConnectServer
     methodName: SelectServer
@@ -281,41 +291,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4296}
     - Class: 114
-      Script: {instanceID: 5022}
+      Script: {instanceID: 5024}
     - Class: 114
-      Script: {instanceID: 5338}
+      Script: {instanceID: 5340}
     - Class: 114
-      Script: {instanceID: 5686}
+      Script: {instanceID: 5688}
     - Class: 114
-      Script: {instanceID: 5882}
+      Script: {instanceID: 5884}
     - Class: 114
-      Script: {instanceID: 5894}
+      Script: {instanceID: 5896}
     - Class: 114
-      Script: {instanceID: 6090}
+      Script: {instanceID: 6092}
     - Class: 114
-      Script: {instanceID: 6498}
+      Script: {instanceID: 6500}
     - Class: 114
-      Script: {instanceID: 6646}
+      Script: {instanceID: 6648}
     - Class: 114
-      Script: {instanceID: 6672}
+      Script: {instanceID: 6674}
     - Class: 114
-      Script: {instanceID: 6864}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 6876}
+      Script: {instanceID: 6878}
     - Class: 114
-      Script: {instanceID: 6920}
+      Script: {instanceID: 6922}
     - Class: 114
-      Script: {instanceID: 7348}
+      Script: {instanceID: 7350}
     - Class: 114
-      Script: {instanceID: 7652}
+      Script: {instanceID: 7654}
     - Class: 114
-      Script: {instanceID: 7966}
+      Script: {instanceID: 7968}
     - Class: 114
-      Script: {instanceID: 8098}
+      Script: {instanceID: 8100}
     - Class: 114
-      Script: {instanceID: 8470}
+      Script: {instanceID: 8472}
     - Class: 114
-      Script: {instanceID: 8726}
+      Script: {instanceID: 8728}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -384,21 +394,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4560}
     - Class: 114
-      Script: {instanceID: 5464}
+      Script: {instanceID: 5466}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5542}
     - Class: 114
-      Script: {instanceID: 5686}
+      Script: {instanceID: 5688}
     - Class: 114
-      Script: {instanceID: 6498}
+      Script: {instanceID: 6500}
     - Class: 114
-      Script: {instanceID: 6864}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 6876}
+      Script: {instanceID: 6878}
     - Class: 114
-      Script: {instanceID: 7348}
+      Script: {instanceID: 7350}
     - Class: 114
-      Script: {instanceID: 8098}
+      Script: {instanceID: 8100}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -511,59 +521,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4848}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 4850}
     - Class: 114
-      Script: {instanceID: 5022}
+      Script: {instanceID: 4870}
     - Class: 114
-      Script: {instanceID: 5338}
+      Script: {instanceID: 5024}
     - Class: 114
-      Script: {instanceID: 5478}
+      Script: {instanceID: 5340}
     - Class: 114
-      Script: {instanceID: 5606}
+      Script: {instanceID: 5480}
     - Class: 114
-      Script: {instanceID: 5626}
+      Script: {instanceID: 5608}
     - Class: 114
-      Script: {instanceID: 5650}
+      Script: {instanceID: 5628}
     - Class: 114
-      Script: {instanceID: 5686}
+      Script: {instanceID: 5652}
     - Class: 114
-      Script: {instanceID: 5698}
+      Script: {instanceID: 5688}
     - Class: 114
-      Script: {instanceID: 5882}
+      Script: {instanceID: 5700}
     - Class: 114
-      Script: {instanceID: 5926}
+      Script: {instanceID: 5884}
     - Class: 114
-      Script: {instanceID: 6076}
+      Script: {instanceID: 5928}
     - Class: 114
-      Script: {instanceID: 6128}
+      Script: {instanceID: 6078}
     - Class: 114
-      Script: {instanceID: 6498}
+      Script: {instanceID: 6130}
     - Class: 114
-      Script: {instanceID: 6864}
+      Script: {instanceID: 6500}
     - Class: 114
-      Script: {instanceID: 6874}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 7308}
+      Script: {instanceID: 6876}
     - Class: 114
-      Script: {instanceID: 7520}
+      Script: {instanceID: 7310}
     - Class: 114
-      Script: {instanceID: 7658}
+      Script: {instanceID: 7522}
     - Class: 114
-      Script: {instanceID: 7966}
+      Script: {instanceID: 7660}
     - Class: 114
-      Script: {instanceID: 8094}
+      Script: {instanceID: 7968}
     - Class: 114
-      Script: {instanceID: 8244}
+      Script: {instanceID: 8096}
     - Class: 114
-      Script: {instanceID: 8470}
+      Script: {instanceID: 8246}
     - Class: 114
-      Script: {instanceID: 8478}
+      Script: {instanceID: 8472}
     - Class: 114
-      Script: {instanceID: 8600}
+      Script: {instanceID: 8480}
     - Class: 114
-      Script: {instanceID: 8726}
+      Script: {instanceID: 8602}
     - Class: 114
-      Script: {instanceID: 8946}
+      Script: {instanceID: 8728}
+    - Class: 114
+      Script: {instanceID: 8948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1519,6 +1531,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 14f6251a4b2714196fa13c19f8ae9e91
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HPBar
   - hash:
       serializedVersion: 2
       Hash: 80568e209fed6dd87b46ddef37054a31
@@ -2706,4 +2724,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Photon Setting.unity
   - Assets/Scenes/Photon Lobby.unity
   - Assets/Scenes/Photon Game.unity
-  playerPath: "C:/Users/\uB178\uC900\uC601/Desktop/bulid/Photon Network.exe"
+  playerPath: C:/Users/IDBLAB/Desktop/build/Photon Network.exe

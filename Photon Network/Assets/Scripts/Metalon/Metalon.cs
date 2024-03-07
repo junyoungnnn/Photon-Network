@@ -24,11 +24,14 @@ public class Metalon : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     [SerializeField] Transform turretPostion;
     [SerializeField] State state;
+    [SerializeField] HPBar healthBar;
+    [SerializeField] protected float maxHealth;
 
     void Start()
     {
         health = 100;
-
+        maxHealth = health;
+        healthBar = GetComponent<HPBar>();
         animator = GetComponent<Animator>();
         turretPostion = GameObject.Find("Turret Tower").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -45,6 +48,7 @@ public class Metalon : MonoBehaviour
             case State.DIE: Die();
                 break;
         }
+        healthBar.UpdateHP(health, maxHealth);
     }
 
     public void Move()
