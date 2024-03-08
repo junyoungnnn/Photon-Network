@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Rifle : MonoBehaviour
@@ -10,6 +11,8 @@ public class Rifle : MonoBehaviour
     [SerializeField] int attack = 20;
     [SerializeField] Camera camera;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] AudioSource playerAudioSource;
+    [SerializeField] AudioClip audioClip;
 
     void Update()
     {
@@ -20,6 +23,7 @@ public class Rifle : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            playerAudioSource.PlayOneShot(audioClip);
             ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 
             if(Physics.Raycast(ray, out raycastHit, Mathf.Infinity, layerMask))

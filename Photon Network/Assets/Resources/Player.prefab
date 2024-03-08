@@ -342,6 +342,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  playerAudioSource: {fileID: 6630338178898157939}
+  audioClip: {fileID: 8300000, guid: 65656348334591c4598bd4adac3c85da, type: 3}
 --- !u!114 &3176618936586446947
 MonoBehaviour:
   m_ObjectHideFlags: 0
