@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    [SerializeField] Slider HPSlider;
-
-    public void UpdateHP(float health, float maxHealth)
-    { 
-        HPSlider.value = health / maxHealth;   
+    public GameObject playerCamera;
+    
+    public void Start()
+    {
+        playerCamera = GameObject.Find("MainCamera");
     }
+
+    public void Update()
+    {
+        transform.forward = playerCamera.transform.forward;
+    }
+    
+
 }

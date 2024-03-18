@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public enum State
 {
@@ -13,28 +14,28 @@ public enum State
 
 public class Metalon : MonoBehaviour
 {
-    private int health;
+    private Animator animator;
+    private NavMeshAgent navMeshAgent;
+    [SerializeField] Transform turretPostion;
+    [SerializeField] State state;
+    [SerializeField] protected int health;
+    [SerializeField] protected float maxHealth;
+    [SerializeField] HPBar healthBar;
+    [SerializeField] Slider HPSlider;
     public int Health
     {
         set { health = value; }
         get { return health; }
     }
 
-    private Animator animator;
-    private NavMeshAgent navMeshAgent;
-    [SerializeField] Transform turretPostion;
-    [SerializeField] State state;
-    [SerializeField] HPBar healthBar;
-    [SerializeField] protected float maxHealth;
-
     void Start()
     {
-        health = 100;
-        maxHealth = health;
-        healthBar = GetComponent<HPBar>();
         animator = GetComponent<Animator>();
         turretPostion = GameObject.Find("Turret Tower").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        health = 100;
+        maxHealth = health;
+        healthBar = GetComponent<HPBar>();
     }
 
     void Update()
@@ -48,8 +49,14 @@ public class Metalon : MonoBehaviour
             case State.DIE: Die();
                 break;
         }
-        healthBar.UpdateHP(health, maxHealth);
+        UpdateHP(health, maxHealth);
     }
+
+    public void UpdateHP(float health, float maxHealth)
+    {
+        HPSlider.value = health / maxHealth;
+    }
+
 
     public void Move()
     {
